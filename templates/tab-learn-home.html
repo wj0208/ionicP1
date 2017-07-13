@@ -1,0 +1,89 @@
+<ion-view title="学习主页" hide-nav-bar="true" hide-tabs="true">
+  <style>
+    .mb{
+      position: absolute;
+      text-align: center;
+      background: rgba(0,0,0,.5);
+      z-index: 999;
+      height: 5.96rem;
+      width: 100%;
+      overflow: hidden;
+      line-height: 5.96rem;
+    }
+    .ved{
+      height: 5.96rem;
+      width: 100%;
+      overflow: hidden;
+    }
+    a{
+      text-decoration: none;
+      color: #fff;
+    }
+  </style>
+  <!--蒙版-->
+  <a href="#/tab/login">
+    <div class="mb" ng-hide="isLogin">
+      请登录
+    </div>
+  </a>
+  <!--视频-->
+  <div class="ved">
+    <video src="video/mov_aaa.mp4" controls style="width: 100%;height: 5.96rem"></video>
+  </div>
+  <!--导航-->
+  <div class="row text-center" style="background: #ccc; margin-top: .05rem">
+    <div class="col" style="border-right: 1px solid #fff;" ng-click="menu()"  ng-style="lcolor">
+      目录
+      <i class="icon ion-ios-arrow-down"></i>
+    </div>
+    <div class="col" ng-click="detail()" ng-style="pcolor">
+      详情
+      <i class="icon ion-ios-arrow-down"></i>
+    </div>
+  </div>
+  <!--底部tabs-->
+  <div class="tabs  tabs-icon-top">
+    <a class="tab-item" ng-click="showModal()">
+      <i class="icon ion-edit"></i>
+      评价
+    </a>
+    <a class="tab-item" ng-click="collectThis()" ng-style="ccolor">
+      <i class="icon ion-ios-star-outline"></i>
+      <span>{{collect}}</span>
+    </a>
+    <a class="tab-item" ng-click="buyThis()" ng-style="bcolor">
+      <i class="icon ion-ios-download-outline"></i>
+      <span>{{buy}}</span>
+    </a>
+  </div>
+  <!--内容部分-->
+  <ion-content style="margin-top: 7.2rem">
+    <ion-list ng-show="menu_detail_switch">
+      <ion-item>
+        Python1
+      </ion-item>
+      <ion-list>
+        <ion-item ng-repeat="temp in studymenudata" style="border: none; margin-top: 0;padding: 0;position: relative;">
+          <span style="position: absolute;left: 1.28rem;top: 50%;margin-top: -8px;z-index: 3" width="16px" height="15px">
+            <img src="img/study_circle.png">
+          </span>
+          <sppan style="display: inline-block;width: 6rem;height: 100%;
+            padding-left: 18px;margin-left: 1.5rem;line-height: 1.8rem;border-left: 1px dashed #ddd;text-overflow:ellipsis;white-space:nowrap;overflow: hidden;">
+            {{temp.title}}
+          </sppan>
+          <span style="display: inline-block;height: 100%;line-height: 1.8rem;overflow: hidden;padding-left: 18px">
+            {{temp.time}}
+          </span>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+    <div class="list" ng-hide="menu_detail_switch">
+      <a class="item item-avatar" href="#" ng-repeat="temp in pingjiadata">
+        <img ng-src="{{temp.pic}}" alt="">
+        <span class="item-note">{{temp.title}}</span>
+        <h2>{{temp.name}}</h2>
+        <p>{{temp.cont}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

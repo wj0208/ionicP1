@@ -1,0 +1,79 @@
+<ion-view view-title="courselist" hide-nav-bar="true">
+  <!--搜索-->
+  <div class="bar bar-header item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="请输入搜索词">
+    </label>
+  </div>
+  <!--导航-->
+  <div class="row text-center" style="margin-top: .2rem">
+    <div class="col" style="border-right: 1px solid #9e9e9e" ng-click="courselist()" ng-style="lcolor">
+      课程列表
+      <i class="icon ion-ios-arrow-down"></i>
+    </div>
+    <div class="col" ng-click="price()" ng-style="pcolor">
+      价格
+      <i class="icon ion-ios-arrow-down"></i>
+    </div>
+  </div>
+  <ion-content style="margin-top: 2.8rem">
+    <style>
+      img{
+        width: 100%;
+        height: auto;
+      }
+      .sy_img{
+        width: 3rem;
+        height: 2.4rem;
+        overflow: hidden;
+        float: left;
+        margin-right: .3rem;
+      }
+      .coursrList{
+        z-index: 100;
+        margin-top: .3rem;
+        overflow: hidden;
+        width: 100%;
+        background: #E8E8E8;
+      }
+      .coursrList .item{
+        float: left;
+        padding: .2rem .1rem;
+        border: 1px solid #9e9e9e;
+        width: 2.3rem;
+        margin: .2rem;
+        font-size: .35rem;
+      }
+      .price{
+        overflow: hidden;
+        width: 100%;
+        margin-top: .3rem;
+      }
+      .price .item{
+        background: #E8E8E8;
+      }
+    </style>
+    <div>
+      <div class="coursrList text-center" ng-show="lilist">
+        <ul class="list">
+          <li class="item" ng-repeat="clBtn in courseListBtns" ng-click="courseSerch({{clBtn.id}})">{{clBtn.btnName}}</li>
+        </ul>
+      </div>
+      <div class="price text-center" ng-show="prlist">
+        <ul class="list">
+          <li class="item" ng-repeat="pBtn in priceBtns" ng-click="priceSearch({{pBtn.id}})">{{pBtn.btnName}}</li>
+        </ul>
+      </div>
+    </div>
+    <!--列表-->
+    <div class="list" style="clear: both">
+      <a class="item item-thumbnail-lef" href="#/tab/courselist-learn/{{temp.id}}" ng-repeat="temp in courselistdata">
+        <div class="sy_img"><img ng-src="{{temp.imgsrc}}"></div>
+        <h2>{{temp.titleEn}}</h2>
+        <p>{{temp.price}}</p>
+      </a>
+    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" ng-if="showMore" immediate-check="false"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

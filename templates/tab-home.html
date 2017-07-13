@@ -1,0 +1,108 @@
+<ion-view view-title="主页" hide-nav-bar="true">
+  <ion-content>
+    <style>
+      a{
+        text-decoration: none;
+        color: #9e9e9e;
+      }
+      .item img,.box img{
+        width: 100%;
+        height: auto;
+      }
+      .box{
+        width: 100%;
+        height: 4.65rem;
+      }
+      .col .item{
+        border: none;
+      }
+      .sy_img{
+        width: 3rem;
+        height: 2.4rem;
+        overflow: hidden;
+        float: left;
+        margin-right: .3rem;
+      }
+    </style>
+    <!--搜索-->
+    <div class="list" style="margin-bottom: 0">
+      <div class="item item-input-inset">
+        <button class="button button-clear" menu-toggle="left">
+          <div style="width: 1rem;height: 1rem;margin-right: 0.3rem">
+            <img src="img/person_touxiang.png" alt="">
+          </div>
+        </button>
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Search">
+        </label>
+        <button class="button button-small">
+          <i class="icon ion-search"></i>
+        </button>
+      </div>
+    </div>
+    <!--轮播-->
+    <ion-slide-box auto-play="true" does-continue="true" slide-interval="2000">
+      <ion-slide ng-repeat="temp in lunbodata">
+        <div class="box">
+          <img ng-src="img/{{temp.imgsrc}}" alt="">
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    <!--好评榜-->
+    <div class="list">
+      <div class="item">
+        <h2>好评榜</h2>
+      </div>
+      <div class="row" ng-repeat="obj in haopingdata">
+          <div class="col" ng-repeat="temp in obj">
+            <a href="#/tab/home-learn/{{temp.id}}">
+              <div class="item item-body">
+                <img class="full-image" ng-src="img/{{temp.imgsrc}}">
+                <p>
+                  {{temp.title}}
+                </p>
+                <p>
+                  {{temp.main}}
+                </p>
+              </div>
+            </a>
+          </div>
+      </div>
+    </div>
+    <!--最新课程-->
+    <div class="list">
+      <div class="item">
+        <h2 style="float: left">最新课程</h2>
+        <div style="float: right"><a href="#/tab/courselist">更多
+          <i class="icon ion-chevron-right"></i>
+        </a></div>
+      </div>
+      <div class="row" ng-repeat="obj in projectdata">
+        <div class="col" ng-repeat="temp in obj">
+          <a href="#/tab/home-learn/{{temp.id}}">
+            <div class="item item-body">
+              <img class="full-image" ng-src="img/{{temp.imgsrc}}">
+              <p>
+                {{temp.title}}
+              </p>
+              <p>
+                {{temp.main}}
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--猜你喜欢-->
+    <div class="list">
+      <div class="item">
+        猜你喜欢
+      </div>
+      <a class="item item-thumbnail-lef" href="#/tab/home-learn/{{temp.id}}" ng-repeat="temp in youlikedata">
+          <div class="sy_img"><img ng-src="img/{{temp.imgsrc}}"></div>
+          <h2>{{temp.title}}</h2>
+          <p>{{temp.main}}</p>
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

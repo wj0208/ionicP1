@@ -1,0 +1,81 @@
+<!--个人中心页面-->
+<ion-view view-title="个人中心" hide-nav-bar="true">
+  <ion-content style="background:url('img/person_01.png') no-repeat; background-size:contain;">
+    <style>
+      a{
+        text-decoration: none;
+        color: #000;
+      }
+      .button{
+        border-radius: .15rem;
+      }
+      .touxiang_wrap{
+        position: relative;
+        width: 100%;
+        height: 5rem;
+      }
+      .touxiang_wrap .touxiang{
+        position: absolute;
+        width: 3rem;
+        height:3rem;
+        bottom: 0;
+        left: -1.5rem;
+        margin-left: 50%;
+        background: url("img/person_touxiang.png") no-repeat;
+        background-size: cover;
+      }
+      .touxiang_wrap .touxiang .bor_left_top{
+        position: absolute;
+        width: .6rem;
+        height: .6rem;
+        background: url("img/person_03.png") no-repeat;
+        background-size: cover;
+        left: -.8rem;
+        top: -.8rem;
+      }
+      .touxiang_wrap .touxiang .bor_right_bottom{
+        position: absolute;
+        width: .6rem;
+        height: .6rem;
+        background: url("img/person_04.png") no-repeat;
+        background-size: cover;
+        right: -.8rem;
+        bottom: -.8rem;
+      }
+      .username{
+        position: absolute;
+        width: 3rem;
+        height: 1rem;
+        color: #fff;
+        text-align: center;
+        bottom: -1rem;
+      }
+    </style>
+    <div class="touxiang_wrap">
+      <div class="touxiang">
+        <div class="bor_left_top"></div>
+        <div class="username">yyyyyyyy</div>
+        <div class="bor_right_bottom"></div>
+      </div>
+    </div>
+    <div class="list" style="margin-top: 3.2rem">
+      <label class="item item-icon-left">
+          <i class="icon ion-ios-person-outline"></i>
+          <span class="item-note">yyyyy</span>
+      </label>
+      <label class="item item-icon-left">
+          <i class="icon ion-ios-email-outline"></i>
+          <span class="item-note">hjh@sad</span>
+      </label>
+      <label class="item item-icon-left">
+          <i class="icon ion-ios-telephone-outline"></i>
+          <span class="item-note">020-4564654</span>
+      </label>
+    </div>
+    <div class="text-center" style="margin: 20px 10px;">
+      <a href="#/tab/login"><button class="button button-positive button-large">
+        退出登录
+      </button></a>
+    </div>
+  </ion-content>
+</ion-view>
